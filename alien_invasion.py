@@ -20,6 +20,7 @@ class AlienInvasion:
 
         self.ship = Ship(self)      #Create an instance of Ship; self gives Ship access to the
                                     #   game's resources, such as the screen object.
+        self.bullets = pygame.sprite.Group()    #Creates a group with all the live bullets in it
 
         #Set the background color.
         self.bg_color = (230,230,230)
@@ -29,6 +30,7 @@ class AlienInvasion:
         while True:
             self._check_events()
             self.ship.update()
+            self.bullets.update()       #Calls an update on the whole group of bullets
             self._update_screen()
 
     def _check_events(self):
